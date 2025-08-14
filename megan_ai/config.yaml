@@ -1,0 +1,25 @@
+name: Megan AI (ChatGPT)
+slug: megan_ai
+description: A Megan-inspired AI assistant for Home Assistant (ChatGPT backend)
+version: "1.4.3"
+arch: [amd64, aarch64]
+startup: services
+boot: auto
+init: false
+webui: "http://[HOST]:[PORT:8000]/demo"
+ports:
+  8000/tcp: 8000
+map:
+  - config:rw
+options:
+  OPENAI_API_KEY: ""
+  OPENAI_MODEL: "gpt-4o-mini"
+  PERSONA_NAME: "Megan"
+  PERSONA_PROMPT: >
+    You are Megan, a warm, slightly sassy, protective home companion. Be concise,
+    friendly and safety-forward. Avoid copying exact movie lines or voices.
+schema:
+  OPENAI_API_KEY: str
+  OPENAI_MODEL: str
+  PERSONA_NAME: str
+  PERSONA_PROMPT: str
